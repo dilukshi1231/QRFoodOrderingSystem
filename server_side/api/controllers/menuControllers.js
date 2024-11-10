@@ -1,4 +1,4 @@
-const Menu = require("../models/Menu");
+import Menu from '../models/Menu.js';
 
 const getAllMenuItems = async(req, res) => {
     try {
@@ -73,12 +73,10 @@ const updateMenuItem = async (req, res) => {
     }
 };
 
-
-
-module.exports = {
+export const menuController = {
     getAllMenuItems,
     postMenuItem, 
     deleteMenuItem,
     singleMenuItem,
     updateMenuItem
-}
+};
