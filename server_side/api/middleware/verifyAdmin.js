@@ -1,5 +1,4 @@
-const jwt = require('jsonwebtoken');
-const User = require('../models/User');
+import User from '../models/User.js';
 const verifyAdmin = async (req, res, next) => {
     const email = req.decoded.email;
     const query ={email: email};
@@ -14,4 +13,4 @@ const verifyAdmin = async (req, res, next) => {
     next();
 };
 
-module.exports = verifyAdmin;
+export default verifyAdmin;

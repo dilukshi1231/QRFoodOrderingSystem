@@ -1,4 +1,4 @@
-const Carts = require("../models/Carts");
+import Carts from '../models/Carts.js';
 
 // get carts using email
 const getCartByEmail = async(req, res) => {
@@ -82,10 +82,10 @@ const getSingleCart = async (req, res) => {
     }
 };
 
-module.exports = {
+export const cartController = {
     getCartByEmail,
     addToCart,
     deleteCart,
     updateCart,
     getSingleCart
-}
+};

@@ -1,14 +1,12 @@
-const express = require('express')
-const Carts = require('../models/Carts');
-const router = express.Router();
+import express from 'express';
+import {cartController} from '../controllers/cartControllers.js';
+import verifyToken from '../middleware/verifyToken.js';
+const cartRoutes = express.Router();
 
-const cartController = require('../controllers/cartControllers')
-const verifyToken = require('../middleware/verifyToken')
+cartRoutes.get('/',verifyToken, cartController.getCartByEmail);
+cartRoutes.post('/', cartController.addToCart);
+cartRoutes.delete('/:id', cartController.deleteCart)
+cartRoutes.put('/:id', cartController.updateCart)
+cartRoutes.get('/:id', cartController.getSingleCart)
 
-router.get('/',verifyToken, cartController.getCartByEmail);
-router.post('/', cartController.addToCart);
-router.delete('/:id', cartController.deleteCart)
-router.put('/:id', cartController.updateCart)
-router.get('/:id', cartController.getSingleCart)
-
-module.exports = router;
+export default cartRoutes;
